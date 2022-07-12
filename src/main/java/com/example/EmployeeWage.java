@@ -84,14 +84,6 @@ public class EmployeeWage
         Random random = new Random();
         String attendance = employeeStatus.get(random.nextInt(employeeStatus.size()));
         Scanner scanner = new Scanner(System.in);
-//        Integer workingHours = 1;
-//        int wage = 0 ;
-//        while (workingHours < 101) {
-//
-//            wage += 20;
-//            workingHours++;
-//        }
-//        System.out.println("While Condition " + wage);
         System.out.println("Press 0 if you are a PART TIME otherwise 1");
         Integer typeOf = scanner.nextInt();
         if(typeOf == 0)
@@ -120,6 +112,39 @@ public class EmployeeWage
                 fullTime.employeeDetails(attendance, hoursWorking);
             }
         }
-    }
 
+        System.out.println("Condition");
+        int days=0;
+        double wagesTotal =0;
+        int hours=0;
+        int ch = 0;
+        while (true)
+        {
+
+            if(attendance == "PRESENT")
+            {
+                ch = 1;
+            }
+
+            switch (ch)
+            {
+                case 0:
+                    System.out.println("Employee is Absent");
+                    break;
+                case 1:
+                    days++;
+                    hours +=8;
+                    break;
+                case 2:
+                    days++;
+                    hours +=4;
+                    break;
+            }
+            if(days >= 20 || hours >= 100){
+                break;
+            }
+            wagesTotal = days * 8 *20;
+        }
+        System.out.println(wagesTotal);
+    }
 }
